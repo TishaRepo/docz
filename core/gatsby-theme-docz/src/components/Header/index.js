@@ -3,7 +3,7 @@ import { jsx, Box, Flex, useColorMode } from 'theme-ui'
 import { useConfig, useCurrentDoc } from 'docz'
 
 import * as styles from './styles'
-import { Edit, Menu, Sun, Github } from '../Icons'
+import { Edit, Menu, Sun, Github, HowDoI } from '../Icons'
 import { Logo } from '../Logo'
 
 export const Header = props => {
@@ -17,6 +17,12 @@ export const Header = props => {
 
   const toggleColorMode = () => {
     setColorMode(colorMode === 'light' ? 'dark' : 'light')
+  }
+
+  let Count = 0;
+  const openHowDoIWindow = () => {
+    console.log('Count = ', Count)
+    Count++
   }
 
   return (
@@ -50,6 +56,13 @@ export const Header = props => {
               <Sun size={15} />
             </button>
           )}
+           <button
+              sx={styles.headerButton}
+              onClick={openHowDoIWindow}
+              aria-label={`Switch to ${colorMode} mode`}
+            >
+              <HowDoI size={15} />
+            </button>
         </Flex>
         {showMarkdownEditButton && edit && doc.link && (
           <a
