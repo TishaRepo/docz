@@ -88,6 +88,13 @@
     "trash": "^6.0.0",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"
+    
+  },
+  
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "react-js-dialog-box": "^1.1.6"
   },
   "workspaces": {
     "packages": [
