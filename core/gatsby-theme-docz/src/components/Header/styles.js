@@ -44,6 +44,7 @@ export const headerButton = {
   fontSize: 0,
   fontWeight: 600,
   cursor: 'pointer',
+  m:'5px'
 }
 
 export const editButton = {
