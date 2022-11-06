@@ -1,12 +1,15 @@
 /** @jsx jsx */
+import * as React from 'react'
 import { jsx, Box, Flex, useColorMode } from 'theme-ui'
 import { useConfig, useCurrentDoc } from 'docz'
 
 import * as styles from './styles'
 import { Edit, Menu, Sun, Github, HowDoI } from '../Icons'
 import { Logo } from '../Logo'
+import Window from '../Window'
 
 export const Header = props => {
+  const [open, setOpen] = React.useState(false)
   const { onOpen } = props
   const {
     repository,
@@ -19,10 +22,11 @@ export const Header = props => {
     setColorMode(colorMode === 'light' ? 'dark' : 'light')
   }
 
-  let Count = 0;
   const openHowDoIWindow = () => {
-    console.log('Count = ', Count)
-    Count++
+    setOpen(true)
+  }
+  const closeHowDoIWindow = () => {
+    setOpen(false)
   }
 
   return (
@@ -56,13 +60,16 @@ export const Header = props => {
               <Sun size={15} />
             </button>
           )}
-           <button
+          {
+            <button
               sx={styles.headerButton}
               onClick={openHowDoIWindow}
               aria-label={`Switch to ${colorMode} mode`}
             >
               <HowDoI size={15} />
             </button>
+          }
+          {<Window open={open} close={closeHowDoIWindow} text="Window" />}
         </Flex>
         {showMarkdownEditButton && edit && doc.link && (
           <a
