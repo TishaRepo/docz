@@ -8,4 +8,3 @@ export { default as Menu } from 'react-feather/dist/icons/menu'
 export { default as Search } from 'react-feather/dist/icons/search'
 export { default as Sun } from 'react-feather/dist/icons/sun'
 export {default as HowDoI} from 'react-feather/dist/icons/help-circle'
-
