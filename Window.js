@@ -13,7 +13,6 @@ const getHeadings = (route, docs) => {
 
 export default function Window(props) {
   const menus = useMenus({})
-  console.log(menus)
   var LUpdatedList = []
 
   //Add Headers in the how do I dilaogs
@@ -92,7 +91,6 @@ export default function Window(props) {
 
   //When user click on the links
   const handlOnButtonClicked = (p_rout, p_boolIsExternalLink) => {
-    console.log(p_rout)
     if (p_boolIsExternalLink) {
       window.open(p_rout)
     } else {
