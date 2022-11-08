@@ -3,19 +3,35 @@ import { ReactDialogBox } from 'react-js-dialog-box'
 import { useMenus, useDocs } from 'docz'
 import { get } from 'lodash/fp'
 import 'react-js-dialog-box/dist/index.css'
+import { Box } from 'theme-ui'
 
+/**
+ *
+ * @param {*} route
+ * @param {*} docs
+ * @returns
+ */
 const getHeadings = (route, docs) => {
   const doc = docs.find(doc => doc.route === route)
   const headings = get('headings', doc)
   return headings ? headings.filter(heading => heading.depth === 2) : []
 }
 
+/**
+ *
+ * @param {NewType} props
+ * @returns
+ */
 export default function Window(props) {
   const menus = useMenus({})
-  console.log(menus)
   var LUpdatedList = []
 
-  //Add Headers in the how do I dilaogs
+  /**
+   *
+   * @param {*} p_arrHeadings
+   * @param {*} p_strRout
+   */
+  //Add Headers in the how do I dialogs
   const addHeadings = (p_arrHeadings, p_strRout) => {
     for (let Heading of p_arrHeadings) {
       if (Heading.depth > 1) {
@@ -29,7 +45,10 @@ export default function Window(props) {
       }
     }
   }
-
+  /**
+   *
+   * @param {*} p_arrMenus
+   */
   //Add Actions in the how do i dialog
   const createHowDoIList = p_arrMenus => {
     for (let Item of p_arrMenus) {
@@ -55,7 +74,9 @@ export default function Window(props) {
       }
     }
   }
-
+  /**
+   *
+   */
   //Add Externals links
   const addExternalPageLinks = () => {
     var LAllPageLinks = document.getElementsByTagName('a')
@@ -67,7 +88,10 @@ export default function Window(props) {
         }
         let LHref = link.href
         //Do not add navigation action link
-        if (LHref.startsWith(window.location.origin) || link.textContent.trim() === "") {
+        if (
+          LHref.startsWith(window.location.origin) ||
+          link.textContent.trim() === ''
+        ) {
           continue
         }
 
@@ -84,11 +108,15 @@ export default function Window(props) {
   }
 
   createHowDoIList(menus, '')
-  addExternalPageLinks()
 
+  addExternalPageLinks()
+  /**
+   *
+   * @param {*} p_rout
+   * @param {*} p_boolIsExternalLink
+   */
   //When user click on the links
   const handlOnButtonClicked = (p_rout, p_boolIsExternalLink) => {
-    console.log(p_rout)
     if (p_boolIsExternalLink) {
       window.open(p_rout)
     } else {
@@ -99,6 +127,7 @@ export default function Window(props) {
   return (
     <>
       {props.open && (
+        <Box>
           <ReactDialogBox
             closeBox={props.close}
             modalWidth="20%"
@@ -134,6 +163,7 @@ export default function Window(props) {
               </table>
             </div>
           </ReactDialogBox>
+        </Box>
       )}
     </>
   )

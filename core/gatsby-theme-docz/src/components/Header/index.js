@@ -7,7 +7,11 @@ import * as styles from './styles'
 import { Edit, Menu, Sun, Github, HowDoI } from '../Icons'
 import { Logo } from '../Logo'
 import Window from '../Window'
-
+/**
+ *
+ * @param {*} props
+ * @returns
+ */
 export const Header = props => {
   const [open, setOpen] = React.useState(false)
   const { onOpen } = props
