@@ -6,10 +6,10 @@ import 'react-js-dialog-box/dist/index.css'
 import { Box } from 'theme-ui'
 
 /**
- *
- * @param {*} route
- * @param {*} docs
- * @returns
+ * @function getHeadings
+ * @param {string} route
+ * @param {Array} docs Array containing all elements of menu
+ * @returns {Array} 
  */
 const getHeadings = (route, docs) => {
   const doc = docs.find(doc => doc.route === route)
@@ -19,17 +19,17 @@ const getHeadings = (route, docs) => {
 
 /**
  *
- * @param {NewType} props
- * @returns
+ * @param {object} props Has two values open which has type boolean and close which is a function
+ * @returns {Window}
  */
 export default function Window(props) {
   const menus = useMenus({})
   var LUpdatedList = []
 
   /**
-   *
-   * @param {*} p_arrHeadings
-   * @param {*} p_strRout
+   * @function addHeadings
+   * @param {Array} p_arrHeadings Array containing all elements of menu
+   * @param {String} p_strRout
    */
   //Add Headers in the how do I dialogs
   const addHeadings = (p_arrHeadings, p_strRout) => {
@@ -46,8 +46,8 @@ export default function Window(props) {
     }
   }
   /**
-   *
-   * @param {*} p_arrMenus
+   * @function createHowDoIList
+   * @param {Array} p_arrMenus Array containing all elements of menu
    */
   //Add Actions in the how do i dialog
   const createHowDoIList = p_arrMenus => {
@@ -75,7 +75,7 @@ export default function Window(props) {
     }
   }
   /**
-   *
+   * @function addExternalPageLinks Adds all links in the current page which routes to another page
    */
   //Add Externals links
   const addExternalPageLinks = () => {
@@ -111,9 +111,9 @@ export default function Window(props) {
 
   addExternalPageLinks()
   /**
-   *
-   * @param {*} p_rout
-   * @param {*} p_boolIsExternalLink
+   * @function handlOnButtonClicked
+   * @param {String} p_rout
+   * @param {Boolean} p_boolIsExternalLink Checks if the link routes to another window
    */
   //When user click on the links
   const handlOnButtonClicked = (p_rout, p_boolIsExternalLink) => {
