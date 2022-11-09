@@ -8,9 +8,9 @@ import { Edit, Menu, Sun, Github, HowDoI } from '../Icons'
 import { Logo } from '../Logo'
 import Window from '../Window'
 /**
- *
- * @param {*} props
- * @returns
+ * @function Header
+ * @param {object} props Onopen Function as parameter
+ * @returns {DocumentAndElementEventHandlers}
  */
 export const Header = props => {
   const [open, setOpen] = React.useState(false)
@@ -25,10 +25,17 @@ export const Header = props => {
   const toggleColorMode = () => {
     setColorMode(colorMode === 'light' ? 'dark' : 'light')
   }
-
+/**
+ * @method openHowDoIWindow  Sets open variable value as true
+ * @returns {void}
+ */
   const openHowDoIWindow = () => {
     setOpen(true)
   }
+  /**
+   * @method closeHowDoIWindow  Sets open variable value as false
+   * @returns {void}
+   */
   const closeHowDoIWindow = () => {
     setOpen(false)
   }
