@@ -1,7 +1,7 @@
 {
-  
+  "private": "true",
   "license": "MIT",
-  "name":"tisha-madame",
+  "name": "tisha-madame",
   "description": "soft-lab-project",
   "version": "1.0.0",
   "author": {
@@ -18,7 +18,7 @@
     "url": "https://github.com/doczjs/docz.git"
   },
   "scripts": {
-    "docz build":"yarn run docz build && yarn upgrade",
+    "docz build": "yarn run docz build && yarn upgrade",
     "clean": "lerna clean",
     "bs": "lerna bootstrap",
     "dev": "yarn packages:build && lerna run dev --parallel --scope={dev-env-*,docz,docz-core,gatsby-theme-docz,rehype-docz,remark-docz}",
@@ -38,7 +38,6 @@
     "contributors:add": "all-contributors add",
     "contributors:generate": "all-contributors generate",
     "prepare": "husky install"
-    
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,md,mdx}": [
@@ -49,9 +48,9 @@
     "*.{js,css,md}": "prettier --write"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
+    "@babel/core": "^7.20.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/preset-typescript": "^7.3.3",
+    "@babel/preset-typescript": "^7.18.6",
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
     "@commitlint/config-lerna-scopes": "^8.2.0",
@@ -61,9 +60,9 @@
     "@types/cross-spawn": "^6.0.0",
     "@types/find-up": "^4.0.0",
     "@types/fs-extra": "^8.0.0",
-    "@types/jest": "^24.0.15",
+    "@types/jest": "^29.2.2",
     "@types/lodash": "^4.14.136",
-    "@types/node": "^12.6.8",
+    "@types/node": "^18.11.9",
     "@types/pascal-case": "^1.1.2",
     "@types/prettier": "^1.16.4",
     "@types/reach__router": "^1.2.4",
@@ -75,11 +74,12 @@
     "@types/wait-on": "^3.2.0",
     "all-contributors-cli": "^6.8.0",
     "babel-eslint": "^10.0.3",
-    "babel-jest": "^24.8.0",
+    "babel-jest": "^29.3.1",
     "babel-plugin-lodash": "^3.3.4",
     "babel-preset-react-app": "^9.1.2",
     "commitizen": "^3.1.2",
     "cross-env": "^5.2.1",
+    "cypress": "^11.0.0",
     "docz-rollup": "^2.1.0",
     "eslint": "^6.8.0",
     "eslint-config-docz-js": "^2.1.0",
@@ -93,17 +93,22 @@
     "lint-staged": "^13.0.3",
     "npm-run-all": "^4.1.5",
     "prettier": "1.19.1",
+    "react-scripts": "^5.0.1",
     "remark-docz": "^2.1.0",
     "rollup": "^1.17.0",
     "trash": "^6.0.0",
     "trash-cli": "^3.0.0",
-    "ts-jest": "^24.0.2",
-    "typescript": "^3.5.3"
+    "ts-jest": "^29.0.3",
+    "tslib": "^2.4.1",
+    "typescript": "^3.5.3",
+    "vite": "^3.2.3"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "react-js-dialog-box": "^1.1.6"
+    "esbuild": "^0.15.13",
+    "react-js-dialog-box": "^1.1.6",
+    "webpack-hot-middleware": "^2.25.3"
   },
   "workspaces": {
     "packages": [
